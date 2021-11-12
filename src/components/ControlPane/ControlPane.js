@@ -14,26 +14,28 @@ const ControlPane = ({
 }) => {
   return (
     <div className={styles.controlPane}>
-      <h2 className={styles.title}>
-        {title}
+		<h2 className={styles.title}>
+			{title}
 
-        <span className={styles.metadata}>
-          {options.length} options
-        </span>
-      </h2>
-      <ButtonRow>
-        {options.map(({ id, label, color, children }) => (
-          <ToggleButton
-            key={id}
-            isSelected={currentOption === id}
-            onClick={() => handleSelectOption(id)}
-            label={label}
-            color={color}
-          >
-            {children}
-          </ToggleButton>
-        ))}
-      </ButtonRow>
+			<span className={styles.metadata}>
+			{options.length} options
+			</span>
+		</h2>
+		<div className={styles.overflowWrapper}>
+			<ButtonRow>
+				{options.map(({ id, label, color, children }) => (
+				<ToggleButton
+					key={id}
+					isSelected={currentOption === id}
+					onClick={() => handleSelectOption(id)}
+					label={label}
+					color={color}
+				>
+					{children}
+				</ToggleButton>
+				))}
+			</ButtonRow>
+		</div>
     </div>
   );
 };
